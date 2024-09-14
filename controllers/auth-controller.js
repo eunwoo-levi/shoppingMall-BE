@@ -44,4 +44,15 @@ authController.authenticate = async (req, res, next) => {
   }
 };
 
+authController.checkAdminPermisson = async (req, res, next) => {
+  try {
+    const { userId } = req;
+    const user = await User.findById(userId);
+    if (user.level !== "admin") throw new Error("no permission");
+    next();
+  } catch (err) {
+    res.status(400).json({ status: fail, error: err.message });
+  }
+};
+
 module.exports = authController;

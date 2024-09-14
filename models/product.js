@@ -7,7 +7,7 @@ const productSchema = Schema(
     image: { type: String, required: true },
     category: { type: Array, required: true },
     description: { type: String, required: true },
-    price: { type: Nubmer, required: true },
+    price: { type: Number, required: true },
     stock: { type: Object, required: true },
     status: { type: String, default: "active" },
     isDeleted: { type: Boolean, default: false },
